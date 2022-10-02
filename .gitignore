@@ -1,0 +1,4 @@
+.vscode/*
+
+*/modelsim/*
+!*/modelsim/*.do
