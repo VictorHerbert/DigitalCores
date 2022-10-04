@@ -1,16 +1,11 @@
 transcript off
 
-if {[file exists rtl_work]} {
-	vdel -lib rtl_work -all
-}
+if {[file exists rtl_work]} {vdel -lib rtl_work -all}
 
 vlib rtl_work
 vmap work rtl_work
 
-
-vlog -sv -work work +incdir+../src {../barrel_shift.sv}
-vlog -sv -work work +incdir+../src {../testbench.sv}
-
+vlog -sv -work work +incdir+../src {../*.sv}
 
 vsim -t 1ps -L rtl_work -L work -voptargs="+acc"  testbench
 
