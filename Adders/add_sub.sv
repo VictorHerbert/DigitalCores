@@ -1,4 +1,4 @@
-module AdderSubtractor #(parameter WIDTH=8)(
+module AdderSubtractor #(parameter WIDTH)(
     input signed [WIDTH-1:0] a,b,
     input sub,
 
