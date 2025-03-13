@@ -1,0 +1,74 @@
+package vga_config;
+
+    class PixelWidth;
+        int red;
+        int green;
+        int blue;
+
+        int width;
+
+        function new(int red, int green, int blue);
+            this.red = red;
+            this.green = green;
+            this.blue = blue;
+
+            this.width = red + blue + green;
+        endfunction
+
+    endclass
+
+    class VGADimentionTiming;
+        int visible_area;
+        int front_porch;
+        int sync_pulse;
+        int back_porch;
+
+        int line;
+
+        function new(int visible_area, int front_porch, int sync_pulse, int back_porch);
+            this.visible_area = visible_area;
+            this.front_porch = front_porch;
+            this.sync_pulse = sync_pulse;
+            this.back_porch = back_porch;
+
+            this.line = visible_area + front_porch + sync_pulse + back_porch;
+        endfunction
+
+    endclass
+
+    class VGATiming;
+        VGADimentionTiming horizontal;
+        VGADimentionTiming vertical;
+
+        int mem_size;
+
+        // Constructor for VGATiming
+        function new(VGADimentionTiming horizontal, VGADimentionTiming vertical);
+            this.horizontal = horizontal;
+            this.vertical = vertical;
+
+            mem_size = horizontal.visible_area * vertical.visible_area;
+        endfunction
+    endclass
+
+
+    /*class VGATiming;
+        VGADimentionTiming horizontal;
+        VGADimentionTiming vertical;
+
+        int mem_size;
+
+        // Constructor
+        function new(
+            VGADimensionTiming horizontal,
+            VGADimensionTiming vertical
+        );
+            this.horizontal = horizontal;
+            this.vertical = vertical;
+
+            mem_size = horizontal.visible_area * vertical.visible_area;
+        endfunction
+
+    endclass*/
+
+endpackage
