@@ -1,6 +1,6 @@
 `define TEST(p1, p2) \
     assert (p1 === p2) \
-        $display("Test %d: \033[32;1mPASSED\033[0m\n", test_it++); \
+        $display("Test %d: \033[32;1mPASSED\033[0m", test_it++); \
     else \
         $display("Test %d: \033[31;1mFAILED\033[0m\nt%0d->Expected %b got %b\n", test_it++, $time, p1, p2)        
 
@@ -39,8 +39,7 @@ module testbench;
     end
 
     initial begin
-        $monitor("Monitor: %b %d", data_in, shamt);
-        for(int i = 0; i < 1; i++) begin
+        for(int i = 0; i < 100; i++) begin
             data_in = $random;
             for(shamt = 0; shamt < LENGTH-1; shamt++) begin
                 #2;
