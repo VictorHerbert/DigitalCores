@@ -1,0 +1,71 @@
+$date
+	Thu Mar 13 17:15:21 2025
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1s
+$end
+$scope module testbench $end
+$scope module barrel_shift $end
+$var wire 8 ! data_in [7:0] $end
+$var wire 3 " shamt [2:0] $end
+$var wire 8 # data_out [7:0] $end
+$var parameter 32 $ LEFT $end
+$var parameter 32 % LENGTH $end
+$var reg 32 & data [31:0] $end
+$scope begin $ivl_for_loop0 $end
+$var integer 32 ' i [31:0] $end
+$upscope $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+b1000 %
+b1 $
+$end
+#0
+$dumpvars
+b100 '
+b100100001001000010010000100100 &
+b100100 #
+b0 "
+b100100 !
+$end
+#7
+b1001000 #
+b1001000010010000100100000100100 &
+b100 '
+b1 "
+#14
+b10010000 #
+b10010000100100000010010000100100 &
+b100 '
+b10 "
+#21
+b100000 #
+b100000001000000100100000100100 &
+b100 '
+b11 "
+#28
+b100000001001000010010000100100 &
+b100 '
+b100 "
+#35
+b1000000 #
+b1000000010010000100100000100100 &
+b100 '
+b101 "
+#42
+b10000000 #
+b10000000100100000010010000100100 &
+b100 '
+b110 "
+#49
+b0 #
+b1000000100100000100100 &
+b100 '
+b111 "
+#54

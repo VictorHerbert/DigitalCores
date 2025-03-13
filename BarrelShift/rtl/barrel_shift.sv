@@ -6,12 +6,12 @@ module BarrelShift #(parameter LENGTH = 8, parameter LEFT = 1)(
 
     logic[$clog2(LENGTH):0][LENGTH-1:0] data;
 
-    assign data[0] = data_in;
     assign data_out = data[$clog2(LENGTH)];
 
-    always_comb for(int i = 1; i <= $clog2(LENGTH); i++)
-        data[i] = shamt[i-1] ? (LEFT ? data[i-1]<<i : data[i-1]>>i) : data[i-1];
-    
-
+    always_comb begin
+        data[0] = data_in;
+        for(int i = 1; i <= $clog2(LENGTH); i++)
+            data[i] = shamt[i-1] ? (LEFT ? data[i-1]<<i : data[i-1]>>i) : data[i-1];
+    end
 
 endmodule
